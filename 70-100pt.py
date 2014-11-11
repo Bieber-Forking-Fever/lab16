@@ -54,7 +54,15 @@ class myApp(object):
     def key(self,event):
         global player
         if event.char == "w":
-            drawpad.move(player,0,-4)
+            drawpad.move(player,0,-15)
+        if event.char == "a":
+            drawpad.move(player,-15,0)
+        if event.char == "s":
+            drawpad.move(player,0,15)
+        if event.char == "d":
+            drawpad.move(player,15,0)
+
+
         
     def collisionDetect(self,rocket):
         rx1,ry1,rx2,ry2 = drawpad.coords(rocket)
