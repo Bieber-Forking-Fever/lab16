@@ -10,8 +10,8 @@ from Tkinter import *
 root = Tk()
 drawpad = Canvas(root, width=800,height=600, background='white')
 player = drawpad.create_oval(390,580,410,600, fill="blue")
-enemy = drawpad.create_rectangle(50,50,100,60, fill="red")
-rocket = drawpad.create_oval(395,590,405,580, fill="red")
+enemy = drawpad.create_rectangle(50,50,100,65, fill="red")
+rocket = drawpad.create_oval(398,580,402,585, fill="red")
 direction = 5
 rocketFired = False
 
@@ -45,6 +45,7 @@ class myApp(object):
         global enemy
         global direction
         global rocketFired
+        global rocket
         x1,y1,x2,y2 = drawpad.coords(enemy)
         if x2 > 800:
             direction = - 5
@@ -68,17 +69,18 @@ class myApp(object):
         drawpad.after(1,self.animate)
 
     def collisionDetect(self):
-                global target
 		global drawpad
                 global player
                 global enemy
+                global rocket
                 x1, y1, x2, y2 = drawpad.coords(enemy)
                 rx1,ry1,rx2,ry2 = drawpad.coords(rocket)
                 if (rx1 > x1 and rx2 < x2) and (ry1 > y1 and ry2 < y2):
-                    print "true"
                     return True
                 else:
+
                     return False
+
 
 
 
